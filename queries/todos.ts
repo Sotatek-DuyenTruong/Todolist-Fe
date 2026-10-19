@@ -25,8 +25,8 @@ export const useListTodos = () => {
 export const useAddTodo = () => {
     const queryClient = useQueryClient()
     return useMutation({
-        mutationFn: async (text: string) => {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/todos`, { text })
+        mutationFn: async (title: string) => {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/todos`, { title })
             return res.data as TodoReq
         },
         onSuccess: () => {
